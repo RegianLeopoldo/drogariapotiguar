@@ -27,7 +27,7 @@ export default function Home() {
     "@id": `${SITE_URL}/#pharmacy`,
     name: "Drogaria Potiguar",
     url: SITE_URL,
-    image: `${SITE_URL}/images/og-drogaria-potiguar.jpg`,
+    image: `${SITE_URL}/images/drogaria-potiguar/og-drogaria-potiguar.jpg`,
     telephone: "+55 61 3334-1386",
     address: {
       "@type": "PostalAddress",

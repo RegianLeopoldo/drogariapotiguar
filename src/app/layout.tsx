@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Confira informações da Drogaria Potiguar, localização, horários de funcionamento e atendimento no Recanto das Emas.",
     images: [
       {
-        url: "/images/og-drogaria-potiguar.jpg",
+        url: "/images/drogaria-potiguar/og-drogaria-potiguar.jpg",
         width: 1200,
         height: 630,
         alt: "Fachada da Drogaria Potiguar no Recanto das Emas",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "Drogaria Potiguar | Recanto das Emas - DF",
     description:
       "Conheça a Drogaria Potiguar. Confira localização, horários e informações da loja.",
-    images: ["/images/og-drogaria-potiguar.jpg"],
+    images: ["/images/drogaria-potiguar/og-drogaria-potiguar.jpg"],
   },
 
   robots: {
