@@ -8,6 +8,8 @@ import Location from "@/components/home/Location";
 import CTA from "@/components/home/CTA";
 import Footer from "@/components/home/Footer";
 import FloatingWhatsApp from "@/components/home/FloatingWhatsApp";
+import Banners from "@/components/home/Banners";
+import ProdutosDestaque from "@/components/home/ProdutosDestaque";
 
 const WHATSAPP = "556133341386";
 
@@ -82,9 +84,14 @@ export default function Home() {
 
       <Hero whatsappLink={whatsappLink} mapsLink={mapsLink} />
       <Benefits />
+      <Banners />
       <InformacoesLoja />
+      <Banners />
       <Categories />
+      <Banners />
+      <ProdutosDestaque />
       <About />
+      <Banners />
       <Location />
       <CTA whatsappLink={whatsappLink} />
       <Footer whatsappLink={whatsappLink} />
