@@ -18,7 +18,7 @@ const SITE_URL = "https://drogariapotiguar.vercel.app";
 
 export default function Home() {
   const whatsappLink = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
-    "Olá! Gostaria de informações sobre os produtos da Drogaria Potiguar.",
+    "Olá! Gostaria de saber mais sobre os produtos da Drogaria Potiguar.\n\n(Acesso pelo site)",
   )}`;
 
   const mapsLink =

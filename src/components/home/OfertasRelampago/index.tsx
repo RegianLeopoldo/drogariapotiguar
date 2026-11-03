@@ -110,7 +110,7 @@ export default function OfertasRelampago() {
 
   function consultarOferta(oferta: Oferta) {
     const mensagem = encodeURIComponent(
-      `Olá! Gostaria de consultar a disponibilidade e o preço do produto ${oferta.nome}.`,
+      `Olá! Gostaria de consultar a disponibilidade e o preço do produto ${oferta.nome}.\n\n(Acesso pelo site)`,
     );
 
     window.open(

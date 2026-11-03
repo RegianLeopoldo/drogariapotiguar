@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -9,54 +11,51 @@ import {
   Clock3,
   MapPin,
   MessageCircle,
-  ShieldCheck,
-  Truck,
+  Store,
 } from "lucide-react";
-import { useEffect, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
 
 const images = [
   {
     src: "/images/drogaria-potiguar/fachada-1.jpg",
     alt: "Fachada da Drogaria Potiguar",
+    title: "Uma farmácia próxima de você",
+    subtitle: "Recanto das Emas, Brasília",
   },
   {
     src: "/images/drogaria-potiguar/fachada-2.jpg",
     alt: "Vista da Drogaria Potiguar",
+    title: "Conheça nossa estrutura",
+    subtitle: "Drogaria Potiguar",
   },
   {
     src: "/images/drogaria-potiguar/interior-1.jpg",
     alt: "Interior da Drogaria Potiguar",
+    title: "Um espaço para receber você",
+    subtitle: "Conheça nossa loja",
   },
 ];
 
-const mapsLink =
+const address = "Q 605, Conjunto 03, Lote 12 - Recanto das Emas, Brasília - DF";
+
+const mapsUrl =
   "https://www.google.com/maps/search/?api=1&query=Drogaria+Potiguar+Q+605+Conjunto+03+Lote+12+Recanto+das+Emas+Brasilia+DF";
 
-const whatsappLink =
-  "https://wa.me/556133341386?text=Olá! Gostaria de obter mais informações sobre a Drogaria Potiguar.";
-
-const features = [
-  {
-    icon: Truck,
-    title: "Opções de entrega",
-    description: "Mais praticidade para receber seus produtos.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Acessibilidade",
-    description: "Entrada e estacionamento acessíveis.",
-  },
-  {
-    icon: Clock3,
-    title: "Amplo horário",
-    description: "Atendimento presencial todos os dias, das 8h às 22h.",
-  },
-];
+const whatsappUrl = "https://wa.me/556133341386";
 
 export default function About() {
   const [activeImage, setActiveImage] = useState(0);
-  const shouldReduceMotion = useReducedMotion();
+  const [paused, setPaused] = useState(false);
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (paused || reduceMotion) return;
+
+    const interval = window.setInterval(() => {
+      setActiveImage((current) => (current + 1) % images.length);
+    }, 6000);
+
+    return () => window.clearInterval(interval);
+  }, [paused, reduceMotion]);
 
   const previousImage = () => {
     setActiveImage((current) =>
@@ -65,234 +64,190 @@ export default function About() {
   };
 
   const nextImage = () => {
-    setActiveImage((current) =>
-      current === images.length - 1 ? 0 : current + 1,
-    );
+    setActiveImage((current) => (current + 1) % images.length);
   };
-
-  useEffect(() => {
-    if (shouldReduceMotion) return;
-
-    const interval = window.setInterval(() => {
-      setActiveImage((current) => (current + 1) % images.length);
-    }, 5000);
-
-    return () => window.clearInterval(interval);
-  }, [shouldReduceMotion]);
 
   return (
     <section
       id="sobre"
-      aria-labelledby="about-heading"
-      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+      className="overflow-hidden bg-[#f7f9fc] py-10 sm:py-12 lg:py-14"
     >
-      <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#174D9A]/[0.035] blur-3xl" />
-
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-[#D92332]/[0.035] blur-3xl" />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-20">
-          {/* Carrossel de fotografias */}
-          <motion.div
-            initial={shouldReduceMotion ? false : { opacity: 0, x: -25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.65, ease: "easeOut" }}
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-7 lg:grid-cols-[1.08fr_0.92fr] lg:gap-9">
+          {/* Galeria de imagens */}
+          <div
             className="min-w-0"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocus={() => setPaused(true)}
+            onBlur={() => setPaused(false)}
           >
-            <div className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-[0_20px_55px_rgba(15,23,42,0.12)]">
-              <div className="relative aspect-[4/3] w-full sm:aspect-[16/11] lg:aspect-[5/5] xl:aspect-[6/5]">
-                {images.map((image, index) => (
-                  <div
-                    key={image.src}
-                    className={`absolute inset-0 transition-opacity duration-700 ${
-                      activeImage === index
-                        ? "z-10 opacity-100"
-                        : "z-0 opacity-0"
-                    }`}
+            <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-[0_12px_35px_rgba(15,23,42,0.10)]">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={images[activeImage].src}
+                    initial={reduceMotion ? false : { opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="absolute inset-0"
                   >
                     <Image
-                      src={image.src}
-                      alt={image.alt}
+                      src={images[activeImage].src}
+                      alt={images[activeImage].alt}
                       fill
-                      priority={index === 0}
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover"
+                      priority={activeImage === 0}
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                      className="object-cover object-center"
                     />
-                  </div>
-                ))}
+                  </motion.div>
+                </AnimatePresence>
 
-                <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-t from-[#10233F]/45 via-transparent to-transparent" />
-
-                {/* Identificação */}
-                <div className="absolute left-4 top-4 z-30 rounded-xl border border-white/30 bg-white/90 px-3.5 py-2.5 shadow-lg backdrop-blur-md sm:left-6 sm:top-6">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#174D9A]">
-                    Conheça nossa loja
+                <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-5 pb-5 pt-14 sm:px-6">
+                  <p className="text-lg font-semibold text-white sm:text-xl">
+                    {images[activeImage].title}
                   </p>
-                  <p className="mt-0.5 text-sm font-extrabold text-[#142B49]">
-                    Drogaria Potiguar
+                  <p className="mt-1 text-sm text-white/85">
+                    {images[activeImage].subtitle}
                   </p>
                 </div>
 
-                {/* Navegação */}
                 <button
                   type="button"
                   onClick={previousImage}
-                  aria-label="Fotografia anterior"
-                  className="absolute left-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/90 text-[#174D9A] shadow-lg backdrop-blur-sm transition hover:scale-105 hover:bg-white sm:left-5 sm:h-11 sm:w-11"
+                  aria-label="Imagem anterior"
+                  className="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-white/90 text-[#174d9a] shadow-md transition hover:bg-white"
                 >
-                  <ArrowLeft size={19} />
+                  <ArrowLeft size={18} />
                 </button>
 
                 <button
                   type="button"
                   onClick={nextImage}
-                  aria-label="Próxima fotografia"
-                  className="absolute right-3 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/90 text-[#174D9A] shadow-lg backdrop-blur-sm transition hover:scale-105 hover:bg-white sm:right-5 sm:h-11 sm:w-11"
+                  aria-label="Próxima imagem"
+                  className="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/60 bg-white/90 text-[#174d9a] shadow-md transition hover:bg-white"
                 >
-                  <ArrowRight size={19} />
+                  <ArrowRight size={18} />
                 </button>
-
-                {/* Indicadores */}
-                <div className="absolute bottom-5 left-0 right-0 z-30 flex items-center justify-center gap-2">
-                  {images.map((image, index) => (
-                    <button
-                      key={image.src}
-                      type="button"
-                      onClick={() => setActiveImage(index)}
-                      aria-label={`Mostrar fotografia ${index + 1}`}
-                      aria-current={activeImage === index}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        activeImage === index
-                          ? "w-8 bg-white"
-                          : "w-2 bg-white/60 hover:bg-white"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                {/* Contador */}
-                <div className="absolute bottom-4 right-4 z-30 rounded-lg border border-white/20 bg-black/30 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md">
-                  {String(activeImage + 1).padStart(2, "0")} /{" "}
-                  {String(images.length).padStart(2, "0")}
-                </div>
               </div>
             </div>
 
-            <p className="mt-3 text-center text-xs text-slate-400">
-              Conheça o espaço da Drogaria Potiguar.
-            </p>
-          </motion.div>
+            {/* Miniaturas */}
+            <div className="mt-3 grid grid-cols-3 gap-3">
+              {images.map((image, index) => (
+                <button
+                  key={image.src}
+                  type="button"
+                  onClick={() => setActiveImage(index)}
+                  aria-label={`Ver imagem ${index + 1}`}
+                  aria-pressed={activeImage === index}
+                  className={`relative aspect-[16/9] overflow-hidden rounded-xl border-2 bg-slate-100 transition ${
+                    activeImage === index
+                      ? "border-[#174d9a] shadow-sm"
+                      : "border-transparent opacity-80 hover:opacity-100"
+                  }`}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 640px) 30vw, 180px"
+                    className="object-cover object-center transition-transform duration-300 hover:scale-105"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
 
-          {/* Apresentação institucional */}
-          <motion.div
-            initial={shouldReduceMotion ? false : { opacity: 0, x: 25 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.65, ease: "easeOut" }}
-            className="flex min-w-0 flex-col"
-          >
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[#174D9A]/10 bg-[#174D9A]/[0.045] px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-[#174D9A] sm:text-xs">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#D92332]" />
-              Sobre a farmácia
-            </span>
-
-            <h2
-              id="about-heading"
-              className="mt-5 text-[28px] font-extrabold leading-[1.15] tracking-tight text-[#142B49] sm:text-3xl md:text-4xl xl:text-[42px]"
-            >
-              Drogaria Potiguar.
-              <span className="mt-1 block text-[#174D9A]">
-                Mais perto de você.
+          {/* Conteúdo institucional */}
+          <div className="min-w-0">
+            <div className="mb-3 flex items-center gap-2">
+              <span className="h-[2px] w-7 rounded-full bg-[#d92332]" />
+              <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#174d9a]">
+                Sobre a nossa farmácia
               </span>
+            </div>
+
+            <h2 className="max-w-xl text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+              Cuidado e praticidade mais perto de você.
             </h2>
 
-            <p className="mt-4 text-justify text-[13px] leading-6 text-slate-600 sm:text-sm sm:leading-7">
-              Localizada no Recanto das Emas, em Brasília, a Drogaria Potiguar
-              oferece opções de atendimento presencial e on-line, além de
-              serviços pensados para proporcionar mais comodidade aos seus
-              clientes.
+            <p className="mt-4 text-base font-medium leading-relaxed text-slate-700">
+              Um atendimento pensado para facilitar o seu dia a dia.
             </p>
 
-            <p className="mt-3 text-justify text-[13px] leading-6 text-slate-600 sm:text-sm sm:leading-7">
-              Conheça nossa loja, consulte as opções de atendimento e entre em
-              contato com nossa equipe para obter mais informações.
-            </p>
+            <div className="mt-4 space-y-3 text-[15px] leading-relaxed text-slate-600">
+              <p>
+                A Drogaria Potiguar está no Recanto das Emas para oferecer
+                praticidade e atenção no seu dia a dia. Nosso espaço reúne
+                opções para diferentes necessidades, com atendimento próximo e
+                facilidade para você encontrar a farmácia.
+              </p>
 
-            {/* Diferenciais */}
-            <div className="mt-7 grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-              {features.map((feature) => {
-                const Icon = feature.icon;
+              <p>
+                Seja para visitar a loja ou entrar em contato, você encontra
+                aqui as principais informações para planejar sua visita e falar
+                com a nossa equipe.
+              </p>
+            </div>
 
-                return (
-                  <div
-                    key={feature.title}
-                    className="flex items-start gap-3 rounded-2xl border border-slate-200/70 bg-white p-3.5 transition-colors hover:border-[#174D9A]/20 sm:p-4"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#174D9A]/[0.07] text-[#174D9A]">
-                      <Icon size={19} strokeWidth={1.8} />
-                    </div>
+            {/* Informações rápidas */}
+            <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-3 py-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-[#174d9a]">
+                  <Store size={19} />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-slate-800">
+                    Loja física
+                  </p>
+                  <p className="text-xs text-slate-500">Recanto das Emas</p>
+                </div>
+              </div>
 
-                    <div className="min-w-0">
-                      <h3 className="text-sm font-bold text-[#142B49]">
-                        {feature.title}
-                      </h3>
-                      <p className="mt-1 text-justify text-xs leading-5 text-slate-500">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+              <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-3 py-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-[#174d9a]">
+                  <Clock3 size={19} />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-slate-800">
+                    Todos os dias
+                  </p>
+                  <p className="text-xs text-slate-500">Das 08h às 22h</p>
+                </div>
+              </div>
             </div>
 
             {/* Endereço */}
-            <a
-              href={mapsLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 flex items-start gap-3 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-4 transition-all hover:border-[#174D9A]/25 hover:bg-[#174D9A]/[0.025]"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#D92332]/[0.07] text-[#D92332]">
-                <MapPin size={20} />
-              </div>
-
-              <div className="min-w-0 flex-1">
-                <p className="text-sm font-bold text-[#142B49]">
-                  Visite nossa loja
-                </p>
-                <p className="mt-1 text-justify text-xs leading-5 text-slate-500 sm:text-sm">
-                  Q 605, Conjunto 03, Lote 12 – Recanto das Emas, Brasília – DF.
-                </p>
-              </div>
-
-              <ArrowUpRight
-                size={18}
-                className="mt-1 shrink-0 text-[#174D9A]"
-              />
-            </a>
+            <div className="mt-4 flex items-start gap-2 text-sm leading-relaxed text-slate-600">
+              <MapPin size={18} className="mt-0.5 shrink-0 text-[#d92332]" />
+              <span>{address}</span>
+            </div>
 
             {/* Botões */}
-            <div className="mt-6 flex flex-col gap-3 min-[420px]:flex-row">
+            <div className="mt-5 flex flex-wrap gap-3">
               <Link
-                href={mapsLink}
+                href={mapsUrl}
                 target="_blank"
-                className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-[#174D9A] px-5 py-3 text-sm font-bold text-white shadow-[0_8px_20px_rgba(23,77,154,0.16)] transition-all hover:-translate-y-0.5 hover:bg-[#123E7C]"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#174d9a] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#123e7c]"
               >
                 Como chegar
                 <ArrowUpRight size={17} />
               </Link>
 
               <Link
-                href={whatsappLink}
+                href={whatsappUrl}
                 target="_blank"
-                className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-bold text-[#073B20] shadow-[0_8px_20px_rgba(37,211,102,0.13)] transition-all hover:-translate-y-0.5 hover:bg-[#20BD5A]"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[#174d9a]/20 bg-white px-5 py-2.5 text-sm font-semibold text-[#174d9a] transition hover:bg-blue-50"
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={17} />
                 Fale conosco
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

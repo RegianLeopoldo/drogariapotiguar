@@ -97,7 +97,7 @@ export default function ProdutosDestaque() {
               : 0;
 
             const mensagem = encodeURIComponent(
-              `Olá! Gostaria de consultar a disponibilidade do produto ${produto.nome}, da marca ${produto.marca}.`,
+              `Olá! Gostaria de consultar a disponibilidade do produto ${produto.nome}, da marca ${produto.marca}.\n\n(Acesso pelo site)`,
             );
 
             return (
