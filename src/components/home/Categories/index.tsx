@@ -163,7 +163,7 @@ export default function Categories() {
                       className="shrink-0 text-blue-300"
                     />
                     <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-blue-200/75 sm:text-[10px]">
-                      Categoria
+                      
                     </span>
                   </div>
 
