@@ -33,6 +33,12 @@ const images = [
     title: "Um espaço para receber você",
     subtitle: "Conheça nossa loja",
   },
+  {
+    src: "/images/drogaria-potiguar/interior-2.jpg",
+    alt: "Interior da Drogaria Potiguar",
+    title: "Um espaço para receber você",
+    subtitle: "Conheça nossa loja",
+  },
 ];
 
 const address = "Q 605, Conjunto 03, Lote 12 - Recanto das Emas, Brasília - DF";
