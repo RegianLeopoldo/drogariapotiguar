@@ -149,19 +149,34 @@ export default function Footer({ whatsappLink }: FooterProps) {
         </motion.div>
 
         {/* Linha inferior */}
-        <div className="relative flex flex-col gap-4 border-t border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative flex flex-col gap-3 border-t border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-center text-xs leading-5 text-white/45 sm:text-left">
             © {currentYear ?? "2026"} Drogaria Potiguar. Todos os direitos
-            reservados. reservados.
+            reservados.
           </p>
 
-          <a
-            href="#inicio"
-            aria-label="Voltar ao início"
-            className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/[0.05] text-white/80 transition-all hover:-translate-y-1 hover:bg-white/10 hover:text-white sm:mx-0"
-          >
-            <ArrowUp size={19} />
-          </a>
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center">
+            <p className="text-xs text-white/50">
+              Site desenvolvido por{" "}
+              <a
+                href="https://regian-portfolio.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Conheça o trabalho de Regian Leopoldo Vieira"
+                className="font-semibold text-white/75 underline decoration-white/30 underline-offset-4 transition-colors hover:text-cyan-300 hover:decoration-cyan-300"
+              >
+                Regian Leopoldo Vieira
+              </a>
+            </p>
+
+            <a
+              href="#inicio"
+              aria-label="Voltar ao início"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/[0.05] text-white/80 transition-all hover:-translate-y-1 hover:bg-white/10 hover:text-white"
+            >
+              <ArrowUp size={19} />
+            </a>
+          </div>
         </div>
       </div>
 
