@@ -155,7 +155,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
             reservados.
           </p>
 
-          <div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center">
+          {/*<div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center">
             <p className="text-xs text-white/50">
               Site desenvolvido por{" "}
               <a
@@ -176,7 +176,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
             >
               <ArrowUp size={19} />
             </a>
-          </div>
+          </div>*/}
         </div>
       </div>
 
