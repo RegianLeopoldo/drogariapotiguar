@@ -20,6 +20,11 @@ const banners = [
     image: "/images/drogaria-potiguar/banners/banner-03.jpg",
     alt: "Cuidados e bem-estar",
   },
+  {
+    id: 4,
+    image: "/images/drogaria-potiguar/banners/banner-04.jpg",
+    alt: "Cuidados e bem-estar",
+  },
 ];
 
 export default function Banners() {
