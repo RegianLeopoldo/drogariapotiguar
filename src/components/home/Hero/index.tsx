@@ -45,7 +45,7 @@ export default function Hero({ whatsappLink, mapsLink }: HeroProps) {
   return (
     <section
       id="inicio"
-      className="relative isolate min-h-[650px] overflow-hidden bg-[#102744] lg:min-h-[690px]"
+      className="relative isolate min-h-[510px] overflow-hidden bg-[#102744] lg:min-h-[550px]"
     >
       <motion.div
         initial={false}
@@ -68,10 +68,45 @@ export default function Hero({ whatsappLink, mapsLink }: HeroProps) {
       <div className="absolute inset-0 -z-20 bg-gradient-to-r from-[#102744]/45 via-[#102744]/20 to-transparent" />
       <div className="absolute inset-0 -z-20 bg-gradient-to-t from-[#102744]/50 via-transparent to-black/[0.04]" />
 
+      {/* Totem vertical da Drogaria Potiguar */}
+      <div
+        aria-label="Placa vertical da Drogaria Potiguar"
+        className="pointer-events-none absolute bottom-0 left-5 top-[22%] z-10 hidden w-[138px] lg:block xl:left-8"
+      >
+        {/* Placa */}
+        <div className="relative z-10 translate-y-5 overflow-hidden rounded-sm border-[5px] border-[#D94A3E] bg-[#153F91] shadow-[8px_12px_25px_rgba(0,0,0,0.35)]">
+          <div className="bg-[#D94A3E] px-2 py-3 text-center">
+            <span className="block text-[18px] font-black leading-tight tracking-[-1px] text-white drop-shadow-sm">
+              DROGARIA
+            </span>
+          </div>
+
+          <div className="px-2 pb-3 pt-2 text-center">
+            <span className="block text-[19px] font-black leading-tight tracking-[-1px] text-white drop-shadow-sm">
+              POTIGUAR
+            </span>
+
+            <span className="mt-2 block text-[9px] font-extrabold uppercase tracking-wide text-white">
+              TELE-ENTREGA
+            </span>
+
+            <span className="mt-1 block whitespace-nowrap text-[19px] font-black leading-none tracking-[-1px] text-[#FFE34D]">
+              3334-1386
+            </span>
+          </div>
+        </div>
+
+        {/* Poste de sustentação */}
+        <div className="absolute bottom-0 left-1/2 top-[165px] w-[18px] -translate-x-1/2 bg-gradient-to-r from-[#A83B32] via-[#E45B49] to-[#A83B32] shadow-[5px_0_10px_rgba(0,0,0,0.25)]" />
+
+        {/* Base visual do poste */}
+        <div className="absolute bottom-0 left-1/2 h-3 w-12 -translate-x-1/2 rounded-sm bg-[#A83B32] shadow-lg" />
+      </div>
+
       <div className="pointer-events-none absolute -right-32 -top-40 -z-10 h-[440px] w-[440px] rounded-full border border-white/[0.09]" />
       <div className="pointer-events-none absolute -right-16 -top-24 -z-10 h-[310px] w-[310px] rounded-full border border-white/[0.07]" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-14 lg:grid-cols-[1.08fr_0.82fr] lg:gap-14 lg:px-8 lg:py-16">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 py-5 sm:px-6 sm:py-7 lg:grid-cols-[1.08fr_0.82fr] lg:gap-14 lg:px-8 lg:py-7">
         {/* Conteúdo principal */}
         <motion.div
           variants={{
@@ -84,7 +119,7 @@ export default function Hero({ whatsappLink, mapsLink }: HeroProps) {
           }}
           initial="hidden"
           animate="visible"
-          className="max-w-2xl"
+          className="max-w-2xl lg:ml-[150px]"
         >
           <motion.div
             variants={reveal}
