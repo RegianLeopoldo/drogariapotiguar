@@ -68,39 +68,82 @@ export default function Hero({ whatsappLink, mapsLink }: HeroProps) {
       <div className="absolute inset-0 -z-20 bg-gradient-to-r from-[#102744]/45 via-[#102744]/20 to-transparent" />
       <div className="absolute inset-0 -z-20 bg-gradient-to-t from-[#102744]/50 via-transparent to-black/[0.04]" />
 
-      {/* Totem vertical da Drogaria Potiguar */}
+      {/* Totem premium 3D - Drogaria Potiguar */}
       <div
         aria-label="Placa vertical da Drogaria Potiguar"
-        className="pointer-events-none absolute bottom-0 left-5 top-[22%] z-10 hidden w-[138px] lg:block xl:left-8"
+        className="pointer-events-none absolute bottom-0 left-5 top-[22%] z-10 hidden w-[138px] [perspective:1200px] lg:block xl:left-8"
       >
-        {/* Placa */}
-        <div className="relative z-10 translate-y-5 overflow-hidden rounded-sm border-[5px] border-[#D94A3E] bg-[#153F91] shadow-[8px_12px_25px_rgba(0,0,0,0.35)]">
-          <div className="bg-[#D94A3E] px-2 py-3 text-center">
-            <span className="block text-[18px] font-black leading-tight tracking-[-1px] text-white drop-shadow-sm">
-              DROGARIA
-            </span>
-          </div>
-
-          <div className="px-2 pb-3 pt-2 text-center">
-            <span className="block text-[19px] font-black leading-tight tracking-[-1px] text-white drop-shadow-sm">
-              POTIGUAR
-            </span>
-
-            <span className="mt-2 block text-[9px] font-extrabold uppercase tracking-wide text-white">
-              TELE-ENTREGA
-            </span>
-
-            <span className="mt-1 block whitespace-nowrap text-[19px] font-black leading-none tracking-[-1px] text-[#FFE34D]">
-              3334-1386
-            </span>
-          </div>
+        {/* Poste metálico fixo */}
+        <div className="absolute bottom-0 left-1/2 top-[155px] z-0 w-[19px] -translate-x-1/2 rounded-sm bg-gradient-to-r from-[#762A25] via-[#F47762] via-35% to-[#70231F] shadow-[5px_4px_14px_rgba(0,0,0,0.4)]">
+          <div className="absolute left-[4px] top-0 h-full w-[2px] bg-white/30 blur-[1px]" />
+          <div className="absolute right-[3px] top-0 h-full w-[3px] bg-black/25" />
         </div>
 
-        {/* Poste de sustentação */}
-        <div className="absolute bottom-0 left-1/2 top-[165px] w-[18px] -translate-x-1/2 bg-gradient-to-r from-[#A83B32] via-[#E45B49] to-[#A83B32] shadow-[5px_0_10px_rgba(0,0,0,0.25)]" />
+        {/* Estrutura móvel da placa */}
+        <motion.div
+          initial={false}
+          whileHover={{
+            rotateY: 58,
+            rotateX: -3,
+            y: -3,
+            scale: 1.035,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 180,
+            damping: 16,
+            mass: 0.8,
+          }}
+          style={{
+            rotateY: 45,
+            y: 20,
+            transformStyle: "preserve-3d",
+            transformOrigin: "center center",
+          }}
+          className="pointer-events-auto relative z-10 translate-y-5 [transform:rotateY(30deg)]"
+        >
+          {/* Lateral direita com profundidade */}
+          <div className="absolute -right-[10px] top-[4px] h-[calc(100%-8px)] w-[11px] rounded-r-[3px] bg-gradient-to-r from-[#A83B32] via-[#61201E] to-[#301416] shadow-[5px_5px_12px_rgba(0,0,0,0.3)]" />
 
-        {/* Base visual do poste */}
-        <div className="absolute bottom-0 left-1/2 h-3 w-12 -translate-x-1/2 rounded-sm bg-[#A83B32] shadow-lg" />
+          {/* Borda inferior */}
+          <div className="absolute -bottom-[10px] left-[5px] h-[10px] w-[calc(100%-5px)] rounded-b-sm bg-gradient-to-b from-[#A83B32] to-[#421719]" />
+
+          {/* Face frontal */}
+          <div className="relative overflow-hidden rounded-[5px] border-[4px] border-[#B83B35] bg-[#102F70] shadow-[0_12px_30px_rgba(0,0,0,0.42)]">
+            {/* Acabamento externo */}
+            <div className="pointer-events-none absolute inset-[2px] z-20 rounded-[2px] border border-white/20" />
+
+            {/* Reflexo de iluminação */}
+            <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-br from-white/[0.16] via-transparent to-black/20" />
+
+            {/* Cabeçalho */}
+            <div className="relative border-b border-[#8D292A] bg-gradient-to-br from-[#F15B50] via-[#D9433E] to-[#A92B32] px-2 py-3.5 text-center shadow-inner">
+              <span className="block text-[18px] font-black leading-tight tracking-[-1px] text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.45)]">
+                DROGARIA
+              </span>
+            </div>
+
+            {/* Corpo azul */}
+            <div className="relative bg-gradient-to-br from-[#2458A6] via-[#153F83] to-[#0A2352] px-2 pb-3.5 pt-3 text-center">
+              <span className="block text-[19px] font-black leading-tight tracking-[-1px] text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                POTIGUAR
+              </span>
+
+              <div className="mx-auto my-2.5 h-px w-[85%] bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+
+              <span className="block text-[9px] font-bold uppercase tracking-[0.13em] text-white/95">
+                TELE-ENTREGA
+              </span>
+
+              <span className="mt-1.5 block whitespace-nowrap text-[19px] font-black leading-none tracking-[-1px] text-[#FFE45B] drop-shadow-[0_2px_4px_rgba(0,0,0,0.65)]">
+                3334-1386
+              </span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Base reforçada fixa */}
+        <div className="absolute bottom-0 left-1/2 z-10 h-3 w-12 -translate-x-1/2 rounded-sm bg-gradient-to-b from-[#E76A56] via-[#A83B32] to-[#63211F] shadow-[0_5px_12px_rgba(0,0,0,0.4)]" />
       </div>
 
       <div className="pointer-events-none absolute -right-32 -top-40 -z-10 h-[440px] w-[440px] rounded-full border border-white/[0.09]" />
