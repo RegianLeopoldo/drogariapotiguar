@@ -171,7 +171,7 @@ export default function Hero({ whatsappLink, mapsLink }: HeroProps) {
           >
             <HeartPulse size={17} className="text-[#FF8991]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.19em] text-white sm:text-[11px]">
-              Drogaria Potiguar
+              Saúde e Bem-Estar
             </span>
           </motion.div>
 
