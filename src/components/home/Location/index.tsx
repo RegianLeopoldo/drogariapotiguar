@@ -44,20 +44,23 @@ export default function Location() {
           {...reveal}
           className="mx-auto mb-10 max-w-3xl text-center sm:mb-12 lg:mb-14"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#174D9A]/10 bg-[#174D9A]/[0.045] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#174D9A] sm:text-xs">
-            <MapPin size={14} className="text-[#D92332]" />
-            Como chegar
-          </span>
+          <div className="w-full max-w-2xl">
+            <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#174D9A] sm:text-xs">
+              <span className="h-[2px] w-6 shrink-0 rounded-full bg-[#D92332] sm:w-7" />
+              Localização
+            </span>
 
-          <h2 className="mt-4 text-[27px] font-extrabold leading-tight tracking-tight text-[#142B49] sm:mt-5 sm:text-3xl md:text-4xl lg:text-[42px]">
-            Estamos perto de
-            <span className="block text-[#174D9A]">você.</span>
-          </h2>
+            <h2 className="mt-3 max-w-xl text-[28px] font-extrabold leading-[1.15] tracking-[-0.035em] text-[#142B49] sm:mt-4 sm:text-3xl md:text-4xl lg:text-[42px]">
+              Sua farmácia,
+              <span className="block text-[#174D9A]">mais perto de você.</span>
+            </h2>
 
-          <p className="mx-auto mt-3 max-w-xl text-justify text-[13px] leading-6 text-slate-500 sm:mt-4 sm:text-sm">
-            Encontre a Drogaria Potiguar no Recanto das Emas. Consulte nosso
-            endereço e veja no mapa como chegar até a nossa loja.
-          </p>
+            <p className="mt-4 max-w-[540px] text-left text-[13px] leading-6 text-slate-600 sm:mt-5 sm:text-sm sm:leading-7 md:text-[15px]">
+              Estamos no Recanto das Emas, em Brasília. Consulte nossa
+              localização e trace sua rota pelo mapa para chegar até a nossa
+              unidade.
+            </p>
+          </div>
         </motion.div>
 
         {/* Conteúdo */}
