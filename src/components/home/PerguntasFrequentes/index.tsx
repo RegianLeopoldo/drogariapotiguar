@@ -83,12 +83,12 @@ export default function PerguntasFrequentes() {
               </span>
             </div>
 
-            <h2 className="max-w-md text-[34px] font-extrabold leading-[1.12] tracking-[-0.045em] text-[#142B49] sm:text-[42px] lg:text-[48px]">
+            <h2 className="max-w-md text-[34px] font-bold leading-[1.16] tracking-[-0.055em] text-[#142B49] sm:text-[42px] lg:text-[48px]">
               Dúvidas?
               <br />
-              <span className="text-[#174D9A]">Estamos aqui</span>
-              <br />
-              para ajudar<span className="text-[#D92332]">.</span>
+              <span className="font-semibold text-[#174D9A]">
+                Conte com a gente.
+              </span>
             </h2>
 
             <p className="mt-5 max-w-sm text-sm leading-7 text-slate-500 sm:text-base">
@@ -147,9 +147,9 @@ export default function PerguntasFrequentes() {
               <span className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
                 Perguntas e respostas
               </span>
-              <span className="rounded-full border border-[#174D9A]/10 bg-white px-3 py-1.5 text-[11px] font-bold text-[#174D9A]">
+              {/*<span className="rounded-full border border-[#174D9A]/10 bg-white px-3 py-1.5 text-[11px] font-bold text-[#174D9A]">
                 {String(perguntas.length).padStart(2, "0")} perguntas
-              </span>
+              </span>*/}
             </div>
 
             <div className="space-y-3">
