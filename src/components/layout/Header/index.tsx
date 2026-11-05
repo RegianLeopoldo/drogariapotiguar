@@ -52,7 +52,7 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 animate-header-enter">
       {/* Faixa principal */}
-      <div className="relative bg-gradient-to-r from-[#B91F2D] via-[#D92332] to-[#C51F30] shadow-[0_5px_20px_rgba(0,0,0,0.18)]">
+      <div className="relative bg-gradient-to-r from-[#D00000] via-[#E00000] to-[#B80000] shadow-[0_5px_20px_rgba(0,0,0,0.18)]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),transparent_55%)]"
