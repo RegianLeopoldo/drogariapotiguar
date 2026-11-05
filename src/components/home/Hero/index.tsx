@@ -45,7 +45,7 @@ export default function Hero({ whatsappLink, mapsLink }: HeroProps) {
   return (
     <section
       id="inicio"
-      className="relative isolate min-h-[510px] overflow-hidden bg-[#102744] lg:min-h-[550px]"
+      className="relative isolate min-h-[430px] overflow-hidden bg-[#102744] lg:min-h-[470px]"
     >
       <motion.div
         initial={false}
@@ -149,7 +149,7 @@ export default function Hero({ whatsappLink, mapsLink }: HeroProps) {
       <div className="pointer-events-none absolute -right-32 -top-40 -z-10 h-[440px] w-[440px] rounded-full border border-white/[0.09]" />
       <div className="pointer-events-none absolute -right-16 -top-24 -z-10 h-[310px] w-[310px] rounded-full border border-white/[0.07]" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 py-5 sm:px-6 sm:py-7 lg:grid-cols-[1.08fr_0.82fr] lg:gap-14 lg:px-8 lg:py-7">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 py-2 sm:px-6 sm:py-3 lg:grid-cols-[1.08fr_0.82fr] lg:gap-14 lg:px-8 lg:py-3">
         {/* Conteúdo principal */}
         <motion.div
           variants={{
@@ -180,8 +180,8 @@ export default function Hero({ whatsappLink, mapsLink }: HeroProps) {
             transition={transition}
             className="mt-6 max-w-[620px] text-[2.45rem] font-extrabold leading-[1.12] tracking-[-0.045em] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.28)] sm:text-5xl lg:text-[55px]"
           >
-            Cuidado e atenção
-            <span className="mt-1 block text-[#FF8991]">
+            <span className="block whitespace-nowrap">Cuidado e atenção</span>
+            <span className="mt-1 block whitespace-nowrap font-semibold text-white">
               em todos os momentos.
             </span>
           </motion.h1>
@@ -263,7 +263,7 @@ export default function Hero({ whatsappLink, mapsLink }: HeroProps) {
             ...transition,
             delay: reduceMotion ? 0 : 0.15,
           }}
-          className="mx-auto w-full max-w-[410px] lg:ml-auto lg:mr-0"
+          className="mx-auto w-full max-w-[410px] lg:ml-auto lg:mr-0 lg:translate-x-20"
         >
           <motion.div
             whileHover={reduceMotion ? undefined : { y: -3 }}

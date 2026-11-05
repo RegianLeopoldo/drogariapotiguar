@@ -44,23 +44,21 @@ export default function Location() {
           {...reveal}
           className="mx-auto mb-10 max-w-3xl text-center sm:mb-12 lg:mb-14"
         >
-          
-<div className="mx-auto w-full max-w-3xl px-3 text-center sm:px-0">
-  <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#174D9A] sm:text-xs">
-    Nossa localização
-  </span>
+          <div className="mx-auto w-full max-w-3xl px-3 text-center sm:px-0">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#174D9A] sm:text-xs">
+              Nossa localização
+            </span>
 
-  <h2 className="mt-3 text-[26px] font-bold leading-tight tracking-tight text-[#142B49] sm:text-3xl md:text-4xl lg:text-[42px]">
-    Sua farmácia,{" "}
-    <span className="text-[#174D9A]">mais perto de você.</span>
-  </h2>
+            <h2 className="mt-3 text-[26px] font-bold leading-tight tracking-tight text-[#142B49] sm:text-3xl md:text-4xl lg:text-[42px]">
+              Sua farmácia,{" "}
+              <span className="text-[#174D9A]">mais perto de você.</span>
+            </h2>
 
-  <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7">
-    Estamos no Recanto das Emas, em Brasília. Consulte nossa localização
-    e encontre o melhor caminho para chegar até nós.
-  </p>
-</div>
-
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7">
+              Estamos no Recanto das Emas, em Brasília. Consulte nossa
+              localização e encontre o melhor caminho para chegar até nós.
+            </p>
+          </div>
         </motion.div>
 
         {/* Conteúdo */}
