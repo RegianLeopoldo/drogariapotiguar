@@ -39,7 +39,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
   }, []);
 
   return (
-    <footer className="relative overflow-hidden bg-[#102D54] text-white">
+    <footer className="relative overflow-hidden bg-[#0B1F36] text-white">
       <div className="pointer-events-none absolute -right-32 top-0 h-80 w-80 rounded-full bg-[#174D9A]/30 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 left-0 h-80 w-80 rounded-full bg-[#D92332]/15 blur-3xl" />
 
@@ -49,7 +49,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="grid gap-10 py-12 sm:grid-cols-2 sm:py-16 lg:grid-cols-[1.3fr_0.8fr_1fr] lg:gap-16 lg:py-20"
+          className="grid gap-8 py-10 sm:grid-cols-2 sm:py-12 lg:grid-cols-[1.3fr_0.8fr_1fr] lg:gap-12 lg:py-12"
         >
           {/* Identidade */}
           <div>
@@ -150,7 +150,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
         </motion.div>
 
         {/* Formas de pagamento */}
-        <div className="border-t border-white/10 py-8">
+        <div className="border-t border-white/10 py-6">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h3 className="text-sm font-extrabold uppercase tracking-[0.12em] text-white">
