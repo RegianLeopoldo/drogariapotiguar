@@ -67,28 +67,42 @@ export default function ProdutosDestaque() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-          className="mb-9 text-center sm:mb-12"
-        >
-          <span className="inline-flex items-center gap-2 rounded-full border border-red-100 bg-red-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#D92332]">
-            <ShoppingBag size={15} />
-            Nossa seleção
-          </span>
+  initial={shouldReduceMotion ? false : { opacity: 0, y: 22 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  className="mb-10 text-center sm:mb-14"
+>
+  {/* Identificação da seção */}
+  <div className="mb-4 flex items-center justify-center gap-3">
+    <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#D92332]/70" />
 
-          <h2 className="mt-4 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
-            Produtos em destaque
-          </h2>
+    <span className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-[#D92332]">
+      Nossa seleção
+    </span>
 
-          <p className="mx-auto mt-3 max-w-2xl text-justify text-sm leading-7 text-slate-600 sm:text-center sm:text-base">
-            Confira alguns produtos selecionados da Drogaria Potiguar. Entre em
-            contato para consultar a disponibilidade.
-          </p>
+    <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#D92332]/70" />
+  </div>
 
-          <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-[#D92332]" />
-        </motion.div>
+  {/* Título */}
+  <h2 className="text-3xl font-extrabold tracking-[-0.045em] text-[#142B49] sm:text-4xl lg:text-[46px]">
+    Produtos em destaque
+    <span className="text-[#D92332]">.</span>
+  </h2>
+
+  {/* Descrição */}
+  <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-500 sm:text-base">
+    Confira nossa seleção de produtos e entre em contato para consultar
+    disponibilidade e informações.
+  </p>
+
+  {/* Acabamento visual */}
+  <div className="mx-auto mt-6 flex items-center justify-center gap-1.5">
+    <span className="h-[3px] w-8 rounded-full bg-[#D92332]" />
+    <span className="h-[3px] w-2 rounded-full bg-[#D92332]/35" />
+    <span className="h-[3px] w-2 rounded-full bg-[#174D9A]/25" />
+  </div>
+</motion.div>
 
         <div className="grid gap-4 sm:grid-cols-2 xl:gap-5">
           {produtos.map((produto, index) => {
