@@ -6,7 +6,8 @@ import { Menu, X, MessageCircle, Truck, Phone, MapPin } from "lucide-react";
 const WHATSAPP = "556133341386";
 const PHONE = "(61) 3334-1386";
 
-const INSTAGRAM_URL = "https://www.instagram.com/drogariapotiguar_?vrfl=MTNlMWUyY3N0cnV2MQ%3D%3D";
+const INSTAGRAM_URL =
+  "https://www.instagram.com/drogariapotiguar_?vrfl=MTNlMWUyY3N0cnV2MQ%3D%3D";
 const MAPS_URL = "https://maps.app.goo.gl/asgqEZ2ChAuoBDaDA";
 
 const navigation = [
@@ -66,13 +67,36 @@ export default function Header() {
             onClick={() => handleNavigation("#inicio")}
             className="group shrink-0"
           >
-            <div className="flex flex-col overflow-hidden rounded-md shadow-md transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lg">
-              <div className="bg-[#D92332] px-3 py-0.5 text-center text-xs font-black tracking-wider text-white">
-                DROGARIA
-              </div>
+            <div className="group relative isolate [perspective:1200px]">
+              <div
+                className="relative flex flex-col overflow-visible rounded-[5px] border border-white/20 shadow-[0_5px_10px_rgba(0,0,0,0.22),0_14px_24px_rgba(0,0,0,0.25)] transition-all duration-500 ease-out [transform:rotateY(-6deg)_rotateX(1deg)] group-hover:-translate-y-1 group-hover:[transform:rotateY(-3deg)_rotateX(0deg)] group-hover:shadow-[0_10px_18px_rgba(0,0,0,0.3),0_22px_32px_rgba(0,0,0,0.3)]"
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                {/* Lateral com acabamento metálico */}
+                <div className="absolute -right-[7px] top-[4px] h-[calc(100%-8px)] w-[7px] rounded-r-[3px] border-r border-black/30 bg-gradient-to-r from-[#9E1B28] via-[#67131C] to-[#350D13]" />
 
-              <div className="bg-[#174D9A] px-3 py-1 text-center text-lg font-black leading-tight tracking-tight text-white">
-                POTIGUAR
+                {/* Acabamento inferior */}
+                <div className="absolute -bottom-[6px] left-[4px] h-[6px] w-[calc(100%-7px)] rounded-b-sm bg-gradient-to-b from-[#9F1D29] to-[#4A1018]" />
+
+                {/* Faixa vermelha */}
+                <div className="relative overflow-hidden rounded-t-[5px] border border-[#F45B64]/50 bg-gradient-to-b from-[#EF2638] via-[#D90018] to-[#B00017] px-3 py-1.5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-3px_5px_rgba(80,0,0,0.2)]">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/15" />
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/60" />
+                  <span className="relative block text-xs font-black tracking-[0.17em] text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.45)]">
+                    DROGARIA
+                  </span>
+                </div>
+
+                {/* Faixa azul */}
+                <div className="relative overflow-hidden rounded-b-[5px] border-x border-b border-[#4C7DBB]/40 bg-gradient-to-b from-[#245EAA] via-[#174D9A] to-[#10366F] px-3 py-1.5 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.25),inset_0_-3px_5px_rgba(0,0,0,0.3)]">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-black/25" />
+                  <span className="relative block text-lg font-black leading-tight tracking-tight text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.45)]">
+                    POTIGUAR
+                  </span>
+                </div>
+
+                {/* Reflexo sutil */}
+                <div className="pointer-events-none absolute inset-0 rounded-[5px] bg-gradient-to-tr from-transparent via-white/[0.025] to-white/[0.12]" />
               </div>
             </div>
           </a>
