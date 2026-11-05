@@ -25,7 +25,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
 
   const navigation = [
     { label: "Início", href: "#inicio" },
-    { label: "Benefícios", href: "#beneficios" },
+    //{ label: "Benefícios", href: "#beneficios" },
     { label: "Categorias", href: "#categorias" },
     { label: "Sobre a loja", href: "#sobre" },
     { label: "Localização", href: "#localizacao" },
@@ -84,23 +84,23 @@ export default function Footer({ whatsappLink }: FooterProps) {
           </div>
 
           {/* Navegação */}
-<div>
-  <h3 className="text-sm font-extrabold uppercase tracking-[0.12em] text-white">
-    Navegação
-  </h3>
+          <div>
+            <h3 className="text-sm font-extrabold uppercase tracking-[0.12em] text-white">
+              Navegação
+            </h3>
 
-  <nav className="mt-3 flex flex-nowrap gap-4 overflow-x-auto whitespace-nowrap pb-1 sm:flex-col sm:gap-2 sm:overflow-visible sm:pb-0">
-    {navigation.map((item) => (
-      <Link
-        key={item.href}
-        href={item.href}
-        className="w-fit shrink-0 border-b border-white/20 pb-1 text-sm text-white/65 transition-all duration-300 hover:border-[#FF727C] hover:text-white"
-      >
-        {item.label}
-      </Link>
-    ))}
-  </nav>
-</div>
+            <nav className="mt-3 flex flex-nowrap gap-4 overflow-x-auto whitespace-nowrap pb-1 sm:flex-col sm:gap-2 sm:overflow-visible sm:pb-0">
+              {navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="w-fit shrink-0 border-b border-white/20 pb-1 text-sm text-white/65 transition-all duration-300 hover:border-[#FF727C] hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
           {/* Contato */}
           <div>
