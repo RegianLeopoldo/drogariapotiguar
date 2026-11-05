@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowUpRight,
   Clock3,
@@ -147,6 +148,57 @@ export default function Footer({ whatsappLink }: FooterProps) {
             </div>
           </div>
         </motion.div>
+
+        {/* Formas de pagamento */}
+        <div className="border-t border-white/10 py-8">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h3 className="text-sm font-extrabold uppercase tracking-[0.12em] text-white">
+                Formas de pagamento
+              </h3>
+              <p className="mt-2 text-xs text-white/50">
+                Consulte as opções disponíveis na loja.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              {[
+                { name: "Pix", src: "/images/pagamentos/pix.svg" },
+                { name: "Visa", src: "/images/pagamentos/visa.svg" },
+                {
+                  name: "Mastercard",
+                  src: "/images/pagamentos/mastercard.svg",
+                },
+                { name: "Elo", src: "/images/pagamentos/elo.svg" },
+                {
+                  name: "American Express",
+                  src: "/images/pagamentos/american-express.svg",
+                },
+                {
+                  name: "Hipercard",
+                  src: "/images/pagamentos/hipercard.svg",
+                },
+                { name: "Diners Club", src: "/images/pagamentos/diners.svg" },
+                { name: "Discover", src: "/images/pagamentos/discover.svg" },
+                { name: "JCB", src: "/images/pagamentos/jcb.svg" },
+              ].map((payment) => (
+                <div
+                  key={payment.name}
+                  title={payment.name}
+                  className="flex h-11 w-[66px] items-center justify-center rounded-lg bg-white px-2"
+                >
+                  <Image
+                    src={payment.src}
+                    alt={payment.name}
+                    width={58}
+                    height={34}
+                    className="h-8 w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* Linha inferior */}
         <div className="relative flex flex-col gap-3 border-t border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between">
