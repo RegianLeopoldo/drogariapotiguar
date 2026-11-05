@@ -49,7 +49,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="grid gap-8 py-10 sm:grid-cols-2 sm:py-12 lg:grid-cols-[1.3fr_0.8fr_1fr] lg:gap-12 lg:py-12"
+          className="grid gap-6 py-7 sm:grid-cols-2 sm:py-8 lg:grid-cols-[1.3fr_0.8fr_1fr] lg:gap-10 lg:py-8"
         >
           {/* Identidade */}
           <div>
@@ -66,7 +66,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
               </span>
             </Link>
 
-            <p className="mt-5 max-w-sm text-justify text-sm leading-7 text-white/65">
+            <p className="mt-3 max-w-sm text-justify text-sm leading-6 text-white/65">
               Sua drogaria no Recanto das Emas, em Brasília. Consulte nossos
               serviços, horários e entre em contato sempre que precisar.
             </p>
@@ -75,7 +75,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#20BD5A]"
+              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#20BD5A]"
             >
               <MessageCircle size={18} />
               Fale pelo WhatsApp
@@ -89,7 +89,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
               Navegação
             </h3>
 
-            <div className="mt-5 flex flex-col gap-3">
+            <div className="mt-3 flex flex-col gap-2">
               {navigation.map((item) => (
                 <Link
                   key={item.href}
@@ -108,12 +108,12 @@ export default function Footer({ whatsappLink }: FooterProps) {
               Informações da loja
             </h3>
 
-            <div className="mt-5 space-y-5">
+            <div className="mt-3 space-y-5">
               <a
                 href={mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-3"
+                className="group flex items-start gap-2"
               >
                 <MapPin size={19} className="mt-0.5 shrink-0 text-[#FF727C]" />
                 <span className="text-sm leading-6 text-white/65 transition-colors group-hover:text-white">
@@ -150,7 +150,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
         </motion.div>
 
         {/* Formas de pagamento */}
-        <div className="border-t border-white/10 py-6">
+        <div className="border-t border-white/10 py-4">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h3 className="text-sm font-extrabold uppercase tracking-[0.12em] text-white">
@@ -201,7 +201,7 @@ export default function Footer({ whatsappLink }: FooterProps) {
         </div>
 
         {/* Linha inferior */}
-        <div className="relative flex flex-col gap-3 border-t border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative flex flex-col gap-2 border-t border-white/10 py-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-center text-xs leading-5 text-white/45 sm:text-left">
             © {currentYear ?? "2026"} Drogaria Potiguar. Todos os direitos
             reservados.
