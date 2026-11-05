@@ -292,7 +292,7 @@ export default function Hero({ whatsappLink, mapsLink }: HeroProps) {
                 </div>
               </div>
 
-              <p className="mt-3 text-xs leading-5 text-white/75 sm:text-sm">
+              <p className="mt-3 text-[11px] leading-5 text-white/75 sm:text-xs">
                 Praticidade e atendimento para facilitar seu dia a dia.
               </p>
 
