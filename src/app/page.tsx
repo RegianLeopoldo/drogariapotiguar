@@ -11,6 +11,7 @@ import FloatingWhatsApp from "@/components/home/FloatingWhatsApp";
 import Banners from "@/components/home/Banners";
 import ProdutosDestaque from "@/components/home/ProdutosDestaque";
 import OfertasRelampago from "@/components/home/OfertasRelampago";
+import PerguntasFrequentes from "@/components/home/PerguntasFrequentes";
 
 const WHATSAPP = "556133341386";
 
@@ -94,6 +95,7 @@ export default function Home() {
       <ProdutosDestaque />
       <About />
       <Banners />
+      <PerguntasFrequentes />
       <Location />
       <CTA whatsappLink={whatsappLink} />
       <Footer whatsappLink={whatsappLink} />
