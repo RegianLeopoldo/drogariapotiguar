@@ -67,41 +67,27 @@ export default function ProdutosDestaque() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 22 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mb-10 text-center sm:mb-14"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mb-8 text-center sm:mb-11"
         >
-          {/* Identificação da seção */}
-          <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#D92332]/70" />
-
-            <span className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-[#D92332]">
-              Nossa seleção
-            </span>
-
-            <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#D92332]/70" />
-          </div>
+          {/* Identificação */}
+          <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-[#174D9A] sm:text-[11px]">
+            Nossa seleção
+          </span>
 
           {/* Título */}
-          <h2 className="text-3xl font-extrabold tracking-[-0.045em] text-[#142B49] sm:text-4xl lg:text-[46px]">
+          <h2 className="mt-2.5 text-[1.7rem] font-semibold leading-tight tracking-[-0.045em] text-[#142B49] sm:mt-3 sm:text-3xl md:text-4xl lg:text-[44px]">
             Produtos em destaque
-            <span className="text-[#D92332]">.</span>
           </h2>
 
           {/* Descrição */}
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-500 sm:text-base">
+          <p className="mx-auto mt-3 max-w-lg px-2 text-[13px] leading-6 text-slate-500 sm:mt-4 sm:px-0 sm:text-sm sm:leading-7">
             Confira nossa seleção de produtos e entre em contato para consultar
             disponibilidade e informações.
           </p>
-
-          {/* Acabamento visual */}
-          <div className="mx-auto mt-6 flex items-center justify-center gap-1.5">
-            <span className="h-[3px] w-8 rounded-full bg-[#D92332]" />
-            <span className="h-[3px] w-2 rounded-full bg-[#D92332]/35" />
-            <span className="h-[3px] w-2 rounded-full bg-[#174D9A]/25" />
-          </div>
         </motion.div>
 
         <div className="grid gap-4 sm:grid-cols-2 xl:gap-5">

@@ -40,25 +40,23 @@ export default function Location() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Cabeçalho */}
+
         <motion.div
           {...reveal}
-          className="mx-auto mb-10 max-w-3xl text-center sm:mb-12 lg:mb-14"
+          className="mx-auto mb-8 max-w-3xl px-3 text-center sm:mb-11 sm:px-0 lg:mb-12"
         >
-          <div className="mx-auto w-full max-w-3xl px-3 text-center sm:px-0">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#174D9A] sm:text-xs">
-              Nossa localização
-            </span>
+          <span className="text-[10px] font-semibold uppercase tracking-[0.17em] text-[#174D9A] sm:text-[11px]">
+            Nossa localização
+          </span>
 
-            <h2 className="mt-3 text-[26px] font-bold leading-tight tracking-tight text-[#142B49] sm:text-3xl md:text-4xl lg:text-[42px]">
-              Sua farmácia,{" "}
-              <span className="text-[#174D9A]">mais perto de você.</span>
-            </h2>
+          <h2 className="mt-3 text-[1.7rem] font-semibold leading-[1.14] tracking-[-0.045em] text-[#142B49] sm:text-3xl md:text-4xl lg:text-[42px]">
+            Sua farmácia, mais perto de você.
+          </h2>
 
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7">
-              Estamos no Recanto das Emas, em Brasília. Consulte nossa
-              localização e encontre o melhor caminho para chegar até nós.
-            </p>
-          </div>
+          <p className="mx-auto mt-3 max-w-xl text-[13px] leading-6 text-slate-500 sm:mt-4 sm:text-sm sm:leading-7">
+            Estamos no Recanto das Emas, em Brasília. Consulte nossa localização
+            e encontre o melhor caminho para chegar até nós.
+          </p>
         </motion.div>
 
         {/* Conteúdo */}

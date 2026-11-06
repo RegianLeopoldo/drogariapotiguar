@@ -90,28 +90,25 @@ export default function Categories() {
         {/* Cabeçalho editorial */}
         <div className="mb-9 flex flex-col justify-between gap-5 border-b border-white/10 pb-7 sm:mb-11 sm:pb-9 lg:flex-row lg:items-end">
           <motion.div
-            initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="max-w-2xl"
+            transition={{ duration: 0.45 }}
+            className="w-full max-w-2xl"
           >
-            <div className="mb-4 flex items-center gap-3">
-              <span className="h-[2px] w-8 bg-[#D92332]" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-200">
-                Drogaria Potiguar
-              </span>
-            </div>
+            <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-white/60 sm:text-[11px]">
+              Drogaria Potiguar
+            </span>
 
             <h2
               id="categories-heading"
-              className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[46px]"
+              className="mt-3 text-[1.7rem] font-medium leading-[1.14] tracking-[-0.045em] text-white sm:text-3xl md:text-4xl lg:text-[44px]"
             >
               Tudo o que faz parte
-              <span className="block text-blue-300">
-                do seu cuidado diário.
-              </span>
+              <span className="block">do seu cuidado diário.</span>
             </h2>
+
+            <div className="mt-4 h-px w-10 bg-white/35" />
           </motion.div>
 
           <motion.p
@@ -162,9 +159,7 @@ export default function Categories() {
                       strokeWidth={1.8}
                       className="shrink-0 text-blue-300"
                     />
-                    <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-blue-200/75 sm:text-[10px]">
-                      
-                    </span>
+                    <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-blue-200/75 sm:text-[10px]"></span>
                   </div>
 
                   <h3 className="text-[15px] font-semibold leading-snug text-white sm:text-lg">
