@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://drogariapotiguar.vercel.app";
+const baseUrl = "https://www.drogariapotiguar.com.br";
 
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
