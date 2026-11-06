@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://drogariapotiguar.vercel.app";
+const siteUrl = "https://www.drogariapotiguar.com.br";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
