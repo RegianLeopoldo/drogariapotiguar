@@ -15,7 +15,7 @@ import PerguntasFrequentes from "@/components/home/PerguntasFrequentes";
 
 const WHATSAPP = "556133341386";
 
-const SITE_URL = "https://drogariapotiguar.vercel.app";
+const SITE_URL = "https://www.drogariapotiguar.com.br";
 
 export default function Home() {
   const whatsappLink = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
